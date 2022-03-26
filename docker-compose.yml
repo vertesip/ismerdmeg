@@ -1,0 +1,20 @@
+version: "3.4"
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    entrypoint: /bin/sh
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend/:/var/www/html/app
+    tty: true
+  backend:
+    container_name: backend
+    image: strapi/strapi
+    volumes:
+      - ./backend:/srv/app
+    ports:
+      - '1337:1337'
