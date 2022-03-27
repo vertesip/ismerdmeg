@@ -3,13 +3,14 @@ services:
   frontend:
     container_name: frontend
     build:
-      context: ./
-      dockerfile: Dockerfile
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./frontend/:/usr/src/frontend
     entrypoint: /bin/sh
     ports:
       - '3000:3000'
-    volumes:
-      - ./frontend/:/var/www/html/app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
     tty: true
   backend:
     container_name: backend
