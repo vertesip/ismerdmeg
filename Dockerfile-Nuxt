@@ -13,9 +13,12 @@ RUN apk add vim
 # Copy package.json to install dependencies
 COPY ./frontend/package.json /usr/src/frontend/
 RUN npm install
+#RUN npm install nuxt
 
 # Set port
 EXPOSE 3000
 
 ENV NUXT_HOST=0.0.0.0
 ENV NUXT_PORT=3000
+
+#CMD [ "npm", "run", "dev" ]

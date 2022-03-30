@@ -1,0 +1,8 @@
+# Dockerfile
+FROM strapi/strapi:3.6.8-node10-alpine
+
+WORKDIR /srv/app
+COPY ./backend/package.json /srv/app
+RUN npm install
+
+CMD [ "strapi" ,"develop" ]

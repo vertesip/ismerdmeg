@@ -28,6 +28,10 @@
     "strapi-plugin-users-permissions": "3.6.8",
     "strapi-utils": "3.6.8"
   },
+  "overrides": {
+    "graphql": "^16.3.0",
+    "strapi-plugin-graphql": "^3.6.8"
+  },
   "author": {
     "name": "A Strapi developer"
   },
