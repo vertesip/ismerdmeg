@@ -12,11 +12,11 @@
   "devDependencies": {},
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.5",
-    "graphql": "^16.3.0",
+    "graphql": "^15.8.0",
     "graphql-tag": "^2.12.6",
     "knex": "0.21.18",
     "sqlite3": "5.0.0",
-    "strapi": "3.6.8",
+    "strapi": "^3.6.8",
     "strapi-admin": "3.6.8",
     "strapi-connector-bookshelf": "3.6.8",
     "strapi-plugin-content-manager": "3.6.8",
@@ -28,9 +28,9 @@
     "strapi-plugin-users-permissions": "3.6.8",
     "strapi-utils": "3.6.8"
   },
-  "overrides": {
-    "graphql": "^16.3.0",
-    "strapi-plugin-graphql": "^3.6.8"
+  "resolutions": {
+    "graphql": "^15.8.0",
+    "**/graphql": "^15.8.0"
   },
   "author": {
     "name": "A Strapi developer"

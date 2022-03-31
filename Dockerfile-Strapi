@@ -1,8 +1,9 @@
 # Dockerfile
-FROM strapi/strapi:3.6.8-node10-alpine
+FROM strapi/base:14-alpine
 
 WORKDIR /srv/app
 COPY ./backend/package.json /srv/app
-RUN npm install
+RUN yarn install
+WORKDIR /srv/app/strapi
 
-CMD [ "strapi" ,"develop" ]
+CMD [ "yarn" ,"strapi" ,"develop" ]

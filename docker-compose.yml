@@ -3,7 +3,8 @@ services:
   frontend:
     container_name: frontend
     build:
-      dockerfile: ./Dockerfile-Nuxt
+      context: ./
+      dockerfile: Dockerfile-Nuxt
     volumes:
       - ./frontend/:/usr/src/frontend
     entrypoint: /bin/sh
@@ -15,8 +16,9 @@ services:
   backend:
     container_name: backend
     build:
-      dockerfile: ./Dockerfile-Strapi
+      context: ./
+      dockerfile: Dockerfile-Strapi
     volumes:
-      - ./backend:/srv/app
+      - ./backend:/srv/app/strapi
     ports:
       - '1337:1337'

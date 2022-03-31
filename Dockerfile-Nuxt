@@ -1,5 +1,5 @@
 # Dockerfile
-FROM node:16.4.2-alpine
+FROM node:14.16.1-alpine
 
 # Create destination directory
 RUN mkdir -p /usr/src/frontend
@@ -13,7 +13,6 @@ RUN apk add vim
 # Copy package.json to install dependencies
 COPY ./frontend/package.json /usr/src/frontend/
 RUN npm install
-#RUN npm install nuxt
 
 # Set port
 EXPOSE 3000
