@@ -1,26 +1,16 @@
 <template>
-<div>
-  <div v-for="message in messages" v-bind:key="message.id">
-    {{message.greetings}}
+  <div>
+    <NavBar />
   </div>
-</div>
 </template>
 
 <script>
-import {messageQuery} from '~/graphql/query'
+import NavBar from '../components/NavBar'
 
 export default {
   name: 'IndexPage',
-    data() {
-    return {
-      messages:[],
-    }
-  },
-  apollo: {
-    messages: {
-      prefetch: true,
-      query: messageQuery,
-    }
+  components: {
+    NavBar
   }
 }
 </script>
