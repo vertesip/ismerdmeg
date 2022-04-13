@@ -15,7 +15,11 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~plugins/geolocation.js',
+    '~plugins/googlemaps.js',
+    {src:'~plugins/nuxtsession.js', mode: 'client'}
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -52,9 +56,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: [/^vue2-google-maps($|\/)/],
     loaders:  {
       vue: {
-         prettify: false
+         prettify: true
       }
     }
   },
