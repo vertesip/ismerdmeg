@@ -2,8 +2,8 @@
 FROM node:14.16.1-alpine
 
 # Create destination directory
-RUN mkdir -p /usr/src/frontend
-WORKDIR /usr/src/frontend
+RUN mkdir -p /usr/src/nuxt
+WORKDIR /usr/src/nuxt
 
 # Update and install vim and git
 RUN apk update && apk upgrade
@@ -11,7 +11,7 @@ RUN apk add git
 RUN apk add vim
 
 # Copy package.json to install dependencies
-COPY ./frontend/package.json /usr/src/frontend/
+COPY ./nuxt/package.json /usr/src/nuxt/
 RUN npm install
 
 # Set port

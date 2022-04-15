@@ -1,24 +1,31 @@
 version: "3.4"
 services:
-  frontend:
-    container_name: frontend
+  nuxt:
+    container_name: nuxt
     build:
       context: ./
       dockerfile: Dockerfile-Nuxt
     volumes:
-      - ./frontend/:/usr/src/frontend
+      - ./nuxt/:/usr/src/nuxt
     entrypoint: /bin/sh
     ports:
       - '3000:3000'
     environment:
       - CHOKIDAR_USEPOLLING=true
     tty: true
-  backend:
-    container_name: backend
+  strapi:
+    container_name: strapi
     build:
       context: ./
       dockerfile: Dockerfile-Strapi
     volumes:
-      - ./backend:/srv/app/strapi
+      - ./strapi:/srv/app/strapi
     ports:
       - '1337:1337'
+  meilisearch:
+    container_name: meilisearch
+    image: getmeili/meilisearch
+    volumes:
+      - ./meilisearch:/data.ms
+    ports:
+      - '7700:7700'
