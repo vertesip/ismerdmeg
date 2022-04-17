@@ -1,9 +1,0 @@
-# Dockerfile
-FROM strapi/base:14-alpine
-
-WORKDIR /srv/app
-COPY ./strapi/package.json /srv/app
-RUN yarn install
-WORKDIR /srv/app/strapi
-
-CMD [ "yarn" ,"strapi" ,"develop" ]

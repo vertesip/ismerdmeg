@@ -4,7 +4,7 @@ services:
     container_name: nuxt
     build:
       context: ./
-      dockerfile: Dockerfile-Nuxt
+      dockerfile: nuxt.dockerfile
     volumes:
       - ./nuxt/:/usr/src/nuxt
     entrypoint: /bin/sh
@@ -16,10 +16,10 @@ services:
   strapi:
     container_name: strapi
     build:
-      context: ./
-      dockerfile: Dockerfile-Strapi
+      context: .
+      dockerfile: strapi.dockerfile
     volumes:
-      - ./strapi:/srv/app/strapi
+      - ./strapi:/opt/app
     ports:
       - '1337:1337'
   meilisearch:
