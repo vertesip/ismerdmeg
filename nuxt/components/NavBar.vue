@@ -9,7 +9,10 @@
     >
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
+    <nuxt-link :to="`/`">
       <v-toolbar-title>Ismerdmeg Magyarországot</v-toolbar-title>
+    </nuxt-link>
+
     </v-app-bar>
   </v-card>
     <v-navigation-drawer

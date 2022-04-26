@@ -18,3 +18,21 @@ query attractionQuery {
 	}
 }
 `
+
+export const singleAttractionQuery = gql`
+query singleAttractionQuery {
+	Attraction(id: "1") {
+		id,
+		  Title,
+		  Description,
+		Banner{    
+		  id
+		  width
+		  height
+		  url
+		},
+		  Did_you_know,
+		  Latitude
+		  Longitude
+	}
+}`

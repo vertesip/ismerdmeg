@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sudo docker stop frontend && sudo docker stop backend 
+docker stop nuxt && docker stop strapi && docker stop nginx && docker stop meilisearch
