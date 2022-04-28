@@ -14,46 +14,32 @@
 </template>
 
 <script>
-// import { singleAttractionQuery } from '~/graphql/query'
-import gql from 'graphql-tag';
-import FooterElement from '../components/FooterElement.vue';
-
-export const singleAttractionQuery = gql`
-query singleAttractionQuery {
-	attraction(id: "2") {
-		id,
-		  Title,
-		  Description,
-		Banner{    
-		  id
-		  width
-		  height
-		  url
-		},
-		  Did_you_know,
-		  Latitude
-		  Longitude
-	}
-}
-`
+import { singleAttractionQuery } from '~/graphql/query'
 
 export default {
-  components: { FooterElement },
   data() {
       return {
           attraction:[],
      }
    },
+  created() {
+    // this.pageId = this.$route.params.id
+  },
   apollo: {
       attraction: {
           prefetch: true,
-          query: singleAttractionQuery
+          query: singleAttractionQuery,
+          variables() {
+            return {
+            id: `${this.$route.params.id}`
+            }
+          }
       }
    },
   methods: {
      getImageName(imageUrl)  {
       return require(`~/assets/${imageUrl.split("/").pop()}`)
-    }
+     }
   }
 }
 

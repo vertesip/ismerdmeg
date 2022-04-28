@@ -20,8 +20,8 @@ query attractionQuery {
 `
 
 export const singleAttractionQuery = gql`
-query singleAttractionQuery {
-	Attraction(id: "1") {
+query singleAttractionQuery($id: ID!) {
+	attraction(id: $id) {
 		id,
 		  Title,
 		  Description,
@@ -35,4 +35,5 @@ query singleAttractionQuery {
 		  Latitude
 		  Longitude
 	}
-}`
+}
+`
