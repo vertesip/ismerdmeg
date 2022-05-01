@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div v-if="!loading">
     <NavBar />
-      <v-img 
+     <v-img 
       :src="getImageName(attraction['Banner'][0]['url'])"
-       ></v-img>
+       > 
+      </v-img>
       <h1>{{attraction['Title']}}</h1>
       <p>{{attraction['Description']}}</p>
       <h2>Tudta-e ?</h2>
@@ -19,13 +20,12 @@ import { singleAttractionQuery } from '~/graphql/query'
 export default {
   data() {
       return {
-          attraction:[],
+        loading: 0,
+        attraction:[]
      }
    },
-  created() {
-    // this.pageId = this.$route.params.id
-  },
   apollo: {
+    $loadingKey: 'loading',
       attraction: {
           prefetch: true,
           query: singleAttractionQuery,
@@ -33,11 +33,12 @@ export default {
             return {
             id: `${this.$route.params.id}`
             }
-          }
+          },
+          fetchPolicy: 'network-only'
       }
    },
   methods: {
-     getImageName(imageUrl)  {
+    getImageName(imageUrl) {
       return require(`~/assets/${imageUrl.split("/").pop()}`)
      }
   }
