@@ -12,6 +12,7 @@ services:
     ports:
       - '3000:3000'
     environment:
+      - STRAPI_URL=strapi
       - CHOKIDAR_USEPOLLING=true
     tty: true
     networks:

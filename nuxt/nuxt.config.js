@@ -37,12 +37,16 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
+    '@nuxtjs/strapi'
   ],
+  strapi: {
+    url: 'http://strapi:1337'
+  },
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: "http://172.25.0.1:1337/graphql" || "http://172.25.0.2:1337/graphql" || "http://172.25.0.3:1337/graphql" || "http://172.25.0.4:1337/graphql"
+        httpEndpoint: "http://strapi:1337/graphql"
       }
     }
   },

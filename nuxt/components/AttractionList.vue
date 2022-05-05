@@ -1,12 +1,13 @@
 <template>
 <section>
+
   <AttractionElement
-      v-for="attraction in attractions"
+      v-for="attraction in attractions.data"
       :key="attraction.id"
       :id="attraction.id"
-      :imageUrl="attraction.Banner[0]['url']"
-      :title="attraction.Title"
-      :description="attraction.Description"
+      :imageUrl="attraction.attributes.Banner.data[0].attributes['url']"
+      :title="attraction.attributes.Title"
+      :description="attraction.attributes.Description"
     />
 </section>
 </template>

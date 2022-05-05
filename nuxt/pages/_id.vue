@@ -2,13 +2,13 @@
   <div v-if="!loading">
     <NavBar />
      <v-img 
-      :src="getImageName(attraction['Banner'][0]['url'])"
+      :src="getImageName(attraction.data.attributes['Banner'].data[0].attributes['url'])"
        > 
       </v-img>
-      <h1>{{attraction['Title']}}</h1>
-      <p>{{attraction['Description']}}</p>
+      <h1>{{attraction.data.attributes['Title']}}</h1>
+      <p>{{attraction.data.attributes['Description']}}</p>
       <h2>Tudta-e ?</h2>
-      <p>{{attraction['Did_you_know']}}</p>
+      <p>{{attraction.data.attributes['Did_you_know']}}</p>
     <GoogleMaps />
     <FooterElement />
   </div>
