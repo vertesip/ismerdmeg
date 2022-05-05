@@ -9,7 +9,7 @@ module.exports = () => ({
     },
     graphql: {
         config: {
-          endpoint: '/api',
+          endpoint: '/graphqlapi',
           apolloServer: {
             /* cors: {
               credentials: false,

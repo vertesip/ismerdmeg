@@ -58,8 +58,8 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: "http://strapi:1337/api",
-        browserHttpEndpoint: "http://localhost:1337/api",
+        httpEndpoint: "http://strapi:1337/graphqlapi",
+        browserHttpEndpoint: "http://localhost:1337/graphqlapi",
         httpLinkOptions: {
           credentials: 'same-origin'
         }
@@ -79,7 +79,7 @@ export default {
     transpile: [/^vue2-google-maps($|\/)/],
     loaders:  {
       vue: {
-         prettify: true
+         prettify: false
       }
     }
   },

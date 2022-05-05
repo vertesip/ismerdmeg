@@ -8,7 +8,7 @@ module.exports = [
       enabled: true,
       headers: '*',
       methods: ["GET", "POST"],
-      origin: ['http://nginx:80', 'http://nuxt:3000', 'http://localhost:80', 'http://localhost:3000', 'http://localhost:1337']
+      origin: ['http://nginx:80', 'http://nuxt:3000', 'http://localhost:80', 'http://localhost:3000', 'http://localhost:1337', 'http://localhost']
     }
   },
   'strapi::logger',
