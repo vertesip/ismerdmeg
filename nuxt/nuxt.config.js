@@ -32,21 +32,37 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/vuetify',
   ],
+  env: {
+    strapiBaseUri: "http://strapi:1337"
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/apollo',
-    '@nuxtjs/strapi'
+    //'@nuxtjs/axios'
   ],
-  strapi: {
-    url: 'http://strapi:1337'
+  /* axios: {
+    prefix: '/api',
+    proxy: true
   },
+  proxy: {
+    '/api/': {
+      target: 'http://strapi:1337',
+      pathRewrite: {
+        '^/api/': ''
+      }
+    }
+  }, */
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: "http://strapi:1337/graphql"
+        httpEndpoint: "http://strapi:1337/api",
+        browserHttpEndpoint: "http://localhost:1337/api",
+        httpLinkOptions: {
+          credentials: 'same-origin'
+        }
       }
     }
   },
