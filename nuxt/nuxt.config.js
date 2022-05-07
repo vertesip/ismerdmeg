@@ -18,6 +18,7 @@ export default {
   plugins: [
     '~plugins/geolocation.js',
     '~plugins/googlemaps.js',
+    '~plugins/instantmeilisearch.js',
     {src:'~plugins/nuxtsession.js', mode: 'client'}
   ],
 

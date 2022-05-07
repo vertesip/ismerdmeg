@@ -1,18 +1,23 @@
 <template>
 <section>
-
-  <AttractionElement
-      v-for="attraction in attractions.data"
-      :key="attraction.id"
-      :id="attraction.id"
-      :imageUrl="attraction.attributes.Banner.data[0].attributes['url']"
-      :title="attraction.attributes.Title"
-      :description="attraction.attributes.Description"
-    />
+  <ais-instant-search :search-client="searchClient" index-name="attraction">
+    <ais-search-box />
+    <ais-hits>
+      <div slot="item" slot-scope="{ item }">
+       <AttractionElement
+          :id="getId(item.id)"
+          :imageUrl="item.Banner[0].formats.thumbnail.url"
+          :title="item.Title"
+          :description="item.Description"
+         />
+      </div>
+    </ais-hits>
+  </ais-instant-search>
 </section>
 </template>
 
 <script>
+import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
 import AttractionElement from '../components/AttractionElement'
 import { attractionQuery } from '~/graphql/query'
 
@@ -24,13 +29,22 @@ export default {
   data() {
       return {
           attractions:[],
+          searchClient: instantMeiliSearch(
+          "http://localhost:7700"
+      ),
      }
    },
   apollo: {
       attractions: {
-          prefetch: true,
+          prefetch: false,
           query: attractionQuery,
       }
+   },
+   methods: {
+     getId(meiliID){
+        const extractedId = meiliID.replace( /^\D+/g, '');
+        return extractedId;
+     }
    }
 }
 </script>

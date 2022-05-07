@@ -14,7 +14,7 @@ import AttractionList from '../components/AttractionList'
 import FooterElement from '../components/FooterElement'
 
 export default {
-  name: 'IndexPage',
+    name: 'IndexPage',
   components: {
     NavBar,
     GoogleMaps,
