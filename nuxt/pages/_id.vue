@@ -1,14 +1,14 @@
 <template>
-  <div v-if="!loading">
+  <div v-if="!loading && isDataLoaded">
     <NavBar />
-     <v-img 
+      <v-img 
       :src="getImageName(attraction.data.attributes['Banner'].data[0].attributes['url'])"
        > 
       </v-img>
-      <h1>{{attraction.data.attributes['Title']}}</h1>
-      <p>{{attraction.data.attributes['Description']}}</p>
-      <h2>Tudta-e ?</h2>
-      <p>{{attraction.data.attributes['Did_you_know']}}</p>
+     <h1>{{attraction.data.attributes['Title']}}</h1>
+     <p>{{attraction.data.attributes['Description']}}</p>
+     <h2>Tudta-e ?</h2>
+     <p>{{attraction.data.attributes['Did_you_know']}}</p>
     <GoogleMaps />
     <FooterElement />
   </div>
@@ -27,8 +27,9 @@ export default {
   apollo: {
     $loadingKey: 'loading',
       attraction: {
-          prefetch: true,
+          prefetch: false,
           query: singleAttractionQuery,
+          ssr: true,
           variables() {
             return {
             id: `${this.$route.params.id}`
@@ -37,6 +38,12 @@ export default {
           fetchPolicy: 'network-only'
       }
    },
+  computed: {
+      isDataLoaded() {
+        const nestedLoaded = Object.keys(this.attraction).map(key => this.attraction[key].length !== 0)
+        return this.attraction && nestedLoaded.length !== 0
+      }
+    },
   methods: {
     getImageName(imageUrl) {
       return require(`~/assets/${imageUrl.split("/").pop()}`)

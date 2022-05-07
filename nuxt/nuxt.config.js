@@ -59,6 +59,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
+        ssrMode: true,
         httpEndpoint: "http://strapi:1337/graphqlapi",
         browserHttpEndpoint: "http://localhost:1337/graphqlapi",
         httpLinkOptions: {
