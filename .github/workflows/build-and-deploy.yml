@@ -15,7 +15,7 @@ on:
         required: true
 #2
 env:
-  REGISTRY: "registry.digitalocean.com/ismerdmeg"
+  REGISTRY: "registry.digitalocean.com"
   IMAGE_NAME: "ismerdmeg"
 
 #3
