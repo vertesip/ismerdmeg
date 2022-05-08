@@ -19,14 +19,15 @@
       "type": "richtext"
     },
     "Banner": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "Did_you_know": {
       "type": "richtext"
@@ -36,6 +37,49 @@
     },
     "Longitude": {
       "type": "float"
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Várak, Romok",
+        "Kastélyok",
+        "Templomok",
+        "Múzeumok",
+        "Tájházak",
+        "Épületek",
+        "Ipari emlékek",
+        "Szobrok",
+        "Kultúrális örökség (emlékházak)",
+        "Kegyhelyek, emlékhelyek",
+        "Történelmi emlékhelyek",
+        "Nemzeti parkok",
+        "Egyéb"
+      ]
+    },
+    "County": {
+      "type": "enumeration",
+      "enum": [
+        "Budapest",
+        "Baranya",
+        "Bács-Kiskun",
+        "Békés",
+        "Borsod-Abaúj-Zemplén",
+        "Csongrád",
+        "Fejér",
+        "Győr-Moson-Sopron",
+        "Hajdú-Bihar",
+        "Heves",
+        "Jász-Nagykun-Szolnok",
+        "Komárom-Esztergom",
+        "Nógrád",
+        "Pest",
+        "Somogy",
+        "Szabolcs-Szatmár-Bereg",
+        "Tolna",
+        "Vas",
+        "Veszprém",
+        "Zala"
+      ]
     }
   }
 }
