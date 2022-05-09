@@ -14,7 +14,7 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSHKEY }}
-        #port: ${{ secrets.PORT }}
+        # port: ${{ secrets.PORT }}
         script: |
           # Navigate to project folder
           cd ../var/www/ismerdmeg
