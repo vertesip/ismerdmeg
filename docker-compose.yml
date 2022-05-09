@@ -14,7 +14,6 @@ services:
     environment:
       - STRAPI_URL=strapi
       - CHOKIDAR_USEPOLLING=true
-    tty: true
     networks:
       - app
   strapi:
