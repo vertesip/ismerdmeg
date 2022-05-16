@@ -27,6 +27,8 @@ jobs:
           sudo rm -rf ismerdmeg
           # Remove old containers
           docker system prune --force --all
+          # Clean npm cache
+          npm cache clean --force
           # Clone project
           git clone https://github.com/vertesip/ismerdmeg.git
           # Navigate into new project
