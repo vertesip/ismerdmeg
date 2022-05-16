@@ -7,8 +7,8 @@ WORKDIR /usr/src/nuxt
 
 # Update and install vim and git
 RUN apk update && apk upgrade
-RUN apk add git
-RUN apk add vim
+#RUN apk add git
+#RUN apk add vim
 
 # Copy package.json to install dependencies
 COPY ./nuxt/package.json /usr/src/nuxt/
@@ -20,4 +20,4 @@ EXPOSE 3000
 ENV NUXT_HOST=0.0.0.0
 ENV NUXT_PORT=3000
 
-#CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "run", "dev" ]

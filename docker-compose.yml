@@ -8,7 +8,6 @@ services:
     volumes:
       - ./nuxt/:/usr/src/nuxt
       - ./strapi/public/uploads/:/usr/src/nuxt/assets/
-    entrypoint: /bin/sh
     ports:
       - '3000:3000'
     environment:
