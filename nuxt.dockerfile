@@ -13,6 +13,8 @@ RUN apk update && apk upgrade
 # Copy package.json to install dependencies
 COPY ./nuxt/package.json /usr/src/nuxt/
 RUN npm install
+RUN npm install --dev 
+RUN npm install nuxt
 
 # Set port
 EXPOSE 3000
