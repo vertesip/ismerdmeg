@@ -1,20 +1,15 @@
 # Dockerfile
 FROM node:14.16.1-alpine
 
-# Create destination directory
-RUN mkdir -p /usr/src/nuxt
-WORKDIR /usr/src/nuxt
-
-# Update and install vim and git
 RUN apk update && apk upgrade
-#RUN apk add git
-#RUN apk add vim
-
-# Copy package.json to install dependencies
-COPY ./nuxt/package.json /usr/src/nuxt/
+# Add node modules outside the project folder
+WORKDIR /usr/src
+COPY ./nuxt/package.json ./
 RUN npm install
+ENV PATH=/usr/src/node_modules/.bin:$PATH
 
-# Set port
+#Start the app
+WORKDIR /usr/src/nuxt
 EXPOSE 3000
 
 ENV NUXT_HOST=0.0.0.0
