@@ -60,8 +60,8 @@ export default {
     clientConfigs: {
       default: {
         ssrMode: true,
-        httpEndpoint: "http://strapi:1337/graphqlapi" || "http://159.223.229.231:1337/graphqlapi",
-        browserHttpEndpoint: "http://localhost:1337/graphqlapi" || "http://159.223.229.231:1337/graphqlapi",
+        httpEndpoint: "http://strapi:1337/graphqlapi",
+        browserHttpEndpoint: "http://strapi:1337/graphqlapi",
         httpLinkOptions: {
           credentials: 'same-origin'
         }
