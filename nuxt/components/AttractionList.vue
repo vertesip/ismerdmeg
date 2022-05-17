@@ -30,7 +30,7 @@ export default {
       return {
           attractions:[],
           searchClient: instantMeiliSearch(
-          "http://localhost:7700"
+          "http://localhost:7700" || "http://159.223.229.231:7700"
       ),
      }
    },
