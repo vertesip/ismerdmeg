@@ -2,7 +2,7 @@ module.exports = () => ({
     meilisearch: {
       config: {
         // Your meili host
-        host: "http://159.223.229.231:7700",
+        host: "http://meilisearch:7700",
         // Your master key or private key
         apiKey: "",
       }

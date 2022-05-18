@@ -53,7 +53,7 @@
                     lng: this.map.getCenter().lng()
                 };
                 const zoom = this.map.getZoom();
-
+                
                 localStorage.center = JSON.stringify(center);
                 localStorage.zoom = zoom;
             }

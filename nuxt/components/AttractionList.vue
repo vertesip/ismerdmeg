@@ -30,7 +30,7 @@ export default {
       return {
           attractions:[],
           searchClient: instantMeiliSearch(
-          "http://159.223.229.231:7700"
+          process.env.BASE_URL+':7700'
       ),
      }
    },
