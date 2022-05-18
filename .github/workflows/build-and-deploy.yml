@@ -21,17 +21,7 @@ jobs:
           cd ../var/www/ismerdmeg
           # Stop project
           sh stop.sh
-          # Navigate outside the project folder
-          cd ..
-          # Delete old project
-          sudo rm -rf ismerdmeg
-          # Remove old containers
-          docker system prune --force --all
-          # Clean npm cache
-          npm cache clean --force
-          # Clone project
-          git clone https://github.com/vertesip/ismerdmeg.git
-          # Navigate into new project
-          cd ismerdmeg
-          # Build new project
+          # Pull Changes
+          git pull
+          # Start project
           sh start.sh
