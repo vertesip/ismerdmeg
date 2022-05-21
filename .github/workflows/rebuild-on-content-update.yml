@@ -17,5 +17,5 @@ jobs:
           command_timeout: 200m
           script: |
             # Navigate to project folder
-            echo test
+             cd ../var/www/ismerdmeg
             sh stop.sh
