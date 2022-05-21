@@ -17,5 +17,8 @@ jobs:
           command_timeout: 200m
           script: |
             # Navigate to project folder
-             cd ../var/www/ismerdmeg
-            sh stop.sh
+            cd ../var/www/ismerdmeg
+            docker exec -it nuxt /bin/sh
+            npm run build
+            fuser -k 3000/tcp
+            docker compose restar nuxt
