@@ -6,7 +6,8 @@ services:
       context: ./
       dockerfile: nuxt.dockerfile
     volumes:
-      - ./strapi/public/uploads/:/usr/src/nuxt/assets/
+    #  - ./nuxt/:/usr/src/nuxt
+       - ./strapi/public/uploads/:/usr/src/nuxt/static/
     ports:
       - '3000:3000'
     environment:
@@ -20,6 +21,8 @@ services:
     build:
       context: .
       dockerfile: strapi.dockerfile
+    volumes:
+      - ./strapi:/opt/app
     ports:
       - '1337:1337'
     networks:
@@ -27,8 +30,12 @@ services:
   meilisearch:
     container_name: meilisearch
     image: getmeili/meilisearch
+    volumes:
+      - ./meilisearch:/data.ms
     ports:
       - '7700:7700'
+    env_file:
+      - ./meilisearch/meilisearch.env
     networks:
       - app
   nginx:
@@ -44,6 +51,15 @@ services:
       - app
     links: 
       - nuxt
+  publish:
+    container_name: strapi_events
+    image: ghcr.io/badsyntax/strapi-webhook-actions-proxy:latest
+    ports:
+      - '5000:5000'
+    env_file:
+      - 'strapi_publish.env'
+    networks:
+      - app
 networks:
   app:
     driver: bridge

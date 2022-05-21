@@ -30,7 +30,8 @@ export default {
       return {
           attractions:[],
           searchClient: instantMeiliSearch(
-          process.env.BASE_URL+':7700'
+          process.env.BASE_URL+':7700',
+          'e54fecca9259d9fabd9571e1e735bf5ee69f275ee38e428ef9edca0a6a31'
       ),
      }
    },

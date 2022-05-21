@@ -4,7 +4,6 @@ FROM node:14
 RUN apt-get update && apt-get install -y libvips-dev
 
 ARG NODE_ENV=development
-ENV NODE_ENV=${NODE_ENV}
 
 WORKDIR /opt/
 COPY ./strapi/package.json ./

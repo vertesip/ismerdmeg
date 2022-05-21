@@ -69,8 +69,8 @@ export default {
   }),
   methods: {
      getImageName(imageUrl)  {
-      return require(`~/assets/${imageUrl.split("/").pop()}`)
-     }
+      return require(`~/static/${imageUrl.split("/").pop()}`)
+    }
   },
   mounted() {
     this.$el.querySelector('.v-skeleton-loader__card').style.display='none'

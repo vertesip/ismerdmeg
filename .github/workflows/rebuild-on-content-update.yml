@@ -1,0 +1,20 @@
+name: Deploy
+on:
+  repository_dispatch:
+    types: [strapi_updated]
+jobs:
+
+  build:
+      name: Build
+      runs-on: ubuntu-latest
+      steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSHKEY }}
+          command_timeout: 200m
+          script: |
+            # Navigate to project folder
+            echo hello
