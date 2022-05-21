@@ -17,4 +17,5 @@ jobs:
           command_timeout: 200m
           script: |
             # Navigate to project folder
-            sh start.sh
+            echo test
+            sh stop.sh
