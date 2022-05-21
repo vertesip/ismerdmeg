@@ -2,6 +2,11 @@ name: Rebuild frontend on Strapi content change
 on:
   repository_dispatch:
     types: [strapi_updated]
+
+concurrency: 
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
 
   build:
