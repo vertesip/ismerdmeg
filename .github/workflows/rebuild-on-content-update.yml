@@ -11,8 +11,10 @@ jobs:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
-          host: http://localhost
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSHKEY }}
           command_timeout: 200m
           script: |
             # Navigate to project folder
-            sh stop.sh
+            sh start.sh
