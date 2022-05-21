@@ -79,7 +79,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    watch: [~/.nuxt/static],
     transpile: [/^vue2-google-maps($|\/)/],
     loaders:  {
       vue: {
