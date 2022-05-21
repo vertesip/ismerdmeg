@@ -18,5 +18,7 @@ jobs:
           script: |
             # Navigate to project folder
             cd ../var/www/ismerdmeg
-            docker exec -t nuxt /bin/sh && npm run build && fuser -k 3000/tcp && docker compose restart nuxt
+            docker exec --tty nuxt /bin/sh
+            while ! npm run build && fuser -k 3000/tcp; do sleep 1; done
+            docker compose restart nuxt
             
