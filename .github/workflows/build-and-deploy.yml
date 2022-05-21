@@ -23,4 +23,4 @@ jobs:
           # Pull Changes
           git pull
           # Start project
-          sh start.sh
+          sh stop.sh
