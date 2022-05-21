@@ -21,4 +21,4 @@ jobs:
             docker exec -it nuxt /bin/sh
             npm run build
             fuser -k 3000/tcp
-            docker compose restar nuxt
+            docker compose restart nuxt
