@@ -19,6 +19,5 @@ jobs:
             # Navigate to project folder
             cd ../var/www/ismerdmeg
             docker exec -it nuxt /bin/sh
-            npm run build
-            fuser -k 3000/tcp
+            npm run build && fuser -k 3000/tcp
             docker compose restart nuxt
