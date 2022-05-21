@@ -1,4 +1,4 @@
-name: Deploy
+name: Rebuild frontend on Strapi content change
 on:
   repository_dispatch:
     types: [strapi_updated]

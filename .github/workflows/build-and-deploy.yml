@@ -1,4 +1,4 @@
-name: remote ssh command
+name: Redeploy app on code change
 on: 
   push:
     branches: [ trunk ]
