@@ -13,7 +13,7 @@ jobs:
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSHKEY }}
+        #key: ${{ secrets.SSHKEY }}
         command_timeout: 200m
         script: |
           # Navigate to project folder
