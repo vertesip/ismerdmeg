@@ -8,8 +8,8 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote ssh commands using password ${{ secrets.SSHKEY }}
-      uses: appleboy/ssh-action@master
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v0.1.4
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -17,7 +17,6 @@ jobs:
         command_timeout: 200m
         script: |
           # Navigate to project folder
-          ${{ secrets.SSHKEY }}
           cd ../var/www/ismerdmeg
           # Stop project
           sh stop.sh
