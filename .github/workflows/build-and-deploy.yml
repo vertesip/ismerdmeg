@@ -17,6 +17,7 @@ jobs:
         command_timeout: 200m
         script: |
           # Navigate to project folder
+          ${{ secrets.SSHKEY }}
           cd ../var/www/ismerdmeg
           # Stop project
           sh stop.sh
