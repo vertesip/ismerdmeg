@@ -24,5 +24,6 @@ jobs:
           sh stop.sh
           # Pull Changes
           git pull
+          #
           # Start project
           sh start-prod.sh
