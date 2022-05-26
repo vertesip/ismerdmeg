@@ -14,6 +14,7 @@ jobs:
         host: ${{ secrets.HOST }}
         user: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSHKEY }}
+        pass: ${{ secrets.PASSPHRASE}}
         command: |
           # Navigate to project folder
           cd ../var/www/ismerdmeg
