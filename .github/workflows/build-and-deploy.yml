@@ -9,12 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands
-      uses: appleboy/ssh-action@master
+      uses: fifsky/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
         user: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSHKEY }}
         pass: ${{ secrets.PASSPHRASE }}
+        args: "-tt -vvv"
         command: |
           # Navigate to project folder
           cd ../var/www/ismerdmeg
