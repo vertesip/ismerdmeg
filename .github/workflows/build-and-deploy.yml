@@ -14,8 +14,7 @@ jobs:
         host: ${{ secrets.HOST }}
         user: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSHKEY }}
-        command_timeout: 200m
-        script: |
+        command: |
           # Navigate to project folder
           cd ../var/www/ismerdmeg
           # Stop project
