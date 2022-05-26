@@ -9,14 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands
-      uses: fifsky/ssh-action@master
+      uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
-        user: ${{ secrets.USERNAME }}
+        username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSHKEY }}
-        pass: ${{ secrets.PASSPHRASE }}
-        args: "-tt -vvv"
-        command: |
+        passphrase: ${{ secrets.PASSPHRASE }}
+        port: 22
+        command_timeout: 200m
+        script: |
           # Navigate to project folder
           cd ../var/www/ismerdmeg
           # Stop project
